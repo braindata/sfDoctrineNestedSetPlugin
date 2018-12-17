@@ -37,7 +37,7 @@ class sfValidatorDoctrineChoiceNestedSet extends sfValidatorBase
     }
     else
     {
-      $targetNode = Doctrine::getTable($this->getOption('model'))->find($value)->getNode();
+      $targetNode = Doctrine_Core::getTable($this->getOption('model'))->find($value)->getNode();
       if ($targetNode->isDescendantOfOrEqualTo($this->getOption('node')))
       {
         throw new sfValidatorError($this, 'node', array('value' => $value));
